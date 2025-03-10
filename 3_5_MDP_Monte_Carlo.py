@@ -102,6 +102,7 @@ def MC(episodes, V, N, gamma):
         G = 0
         for i in range(len(episode) - 1, -1, -1):
             (s, a, r, s_next) = episode[i]
+            #G 是累计回报
             G = gamma * G + r
             N[s] = N[s] + 1
             V[s] = V[s] +(G - V[s])/N[s]
